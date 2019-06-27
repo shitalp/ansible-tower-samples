@@ -1,6 +1,6 @@
 ---
 - name: Install nginx
-  hosts: app_servers
+  hosts: all
   become: true
   tasks:
    - name: Ansible create file if it doesn't exist example
