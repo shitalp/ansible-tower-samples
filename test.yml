@@ -1,6 +1,8 @@
 ---
 - name: Install nginx
   hosts: all
+  environment:
+    ANSIBLE_HOST_KEY_CHECKING: false
   become_method: sudo
   tasks:
    - name: Ansible create file if it doesn't exist example
