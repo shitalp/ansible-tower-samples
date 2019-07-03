@@ -13,3 +13,6 @@
        shell: sed -i -e 's/\r$//' install-OpsRamp-Agent.sh
        args:
           chdir: /tmp
+          
+     - name: execute
+       shell: /tmp/install-OpsRamp-Agent.sh
