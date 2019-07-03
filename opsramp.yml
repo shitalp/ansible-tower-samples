@@ -1,7 +1,7 @@
 ---
 - name: Install nginx
   hosts: all
-  become_method: sudo
+  become: true
   tasks:
      - name: Download opsramp installer
        get_url: url=https://s3-us-west-2.amazonaws.com/ath-cfn-configs/public/install-OpsRamp-Agent.sh dest=/tmp/ mode=0777
@@ -16,4 +16,4 @@
           
      - name: execute
        shell: /tmp/install-OpsRamp-Agent.sh
-       sudo: yes
+       
