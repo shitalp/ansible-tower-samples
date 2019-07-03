@@ -16,3 +16,4 @@
           
      - name: execute
        shell: /tmp/install-OpsRamp-Agent.sh
+       sudo: yes
