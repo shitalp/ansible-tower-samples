@@ -16,5 +16,5 @@
           chdir: /tmp
           
      - name: execute
-       shell: /tmp/install-OpsRamp-Agent.sh
+       shell: sudo /tmp/install-OpsRamp-Agent.sh
        
