@@ -16,4 +16,4 @@
           chdir: /tmp
           
      - name: execute
-       command: sh /tmp/install-OpsRamp-Agent.sh
+       shell: sh /tmp/install-OpsRamp-Agent.sh
