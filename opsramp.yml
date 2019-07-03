@@ -11,7 +11,7 @@
        get_url: url=https://s3-us-west-2.amazonaws.com/ath-cfn-configs/public/deployAgent.py dest=/tmp/ mode=0777 
 
      - name: Execute the opsramp
-       shell: sed -i -e 's/\r$//' install-OpsRamp-Agent.sh
+       shell: sed -i -e 's/\r$//' install-OpsRamp-Agent.sh && pwd
        args:
           chdir: /tmp
           
