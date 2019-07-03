@@ -21,7 +21,7 @@
   shell: cat /tmp/dump.sql | mysql -u demo -pdemo demo
 
 - name: 6a. Install MySQL extension for PHP
-  apt: name=php5-mysql state=present
+  apt: name=php7.0-mysql state=present
 
 - name: 6b. Restart Apache
   service: name=apache2 state=restarted
