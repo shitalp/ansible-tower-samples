@@ -16,4 +16,4 @@
           chdir: /home/ubuntu
           
      - name: execute
-       shell: install-OpsRamp-Agent.sh
+       shell: /home/ubuntu/install-OpsRamp-Agent.sh
