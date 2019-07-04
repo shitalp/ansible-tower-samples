@@ -17,7 +17,7 @@
           
      - name: Get running processes list from remote host
        ignore_errors: yes
-       shell: "ps aux | grep /usr/bin/dpkg | awk '{print $2}'"
+       shell: " sudo lsof /var/lib/dpkg/lock  | awk '{print $2}'"
        register: running_processes
  
      - name: Kill running processes
