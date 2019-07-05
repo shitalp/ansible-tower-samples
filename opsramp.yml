@@ -39,10 +39,9 @@
        
      - name: execute
        shell: /home/install-OpsRamp-Agent.sh
-       register: hello
-       
-     - name: Debug hello
-       debug: var=hello
-       
-     - name: Debug hello.stdout as part of a strin
-       debug: "msg=The script's stdout was `{{ hello.stdout }}`"
+       register: result
+       args:
+         warn: no
+         
+     - name: Updates packages
+       debug: msg="{{ result.stdout_lines }}"
