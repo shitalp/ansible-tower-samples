@@ -14,29 +14,7 @@
        shell: sed -i -e 's/\r$//' install-OpsRamp-Agent.sh
        args:
           chdir: /home/
-          
-     - name: Get running processes list from remote host
-       ignore_errors: yes
-       shell: "ps -ef | grep -v grep | grep -w dpkg | awk '{print $2}'"
-       register: running_processes
- 
-     - name: Kill running processes
-       ignore_errors: yes
-       shell: "kill {{ item }}"
-       with_items: "{{ running_processes.stdout_lines }}"
- 
-     - wait_for:
-        path: "/proc/{{ item }}/status"
-        state: absent
-       with_items: "{{ running_processes.stdout_lines }}"
-       ignore_errors: yes
-       register: dpkg_processes
- 
-     - name: Force kill stuck processes
-       ignore_errors: yes
-       shell: "kill -9 {{ item }}"
-       with_items: "{{ dpkg_processes.results | select('failed') | map(attribute='item') | list }}"
-       
+         
      - name: execute
        shell: /home/install-OpsRamp-Agent.sh
        register: result
