@@ -9,6 +9,12 @@
    shell: sed -i -e 's/\r$//' install-OpsRamp-Agent.sh
    args:
       chdir: /home/
-          
+         
  - name: execute
    shell: /home/install-OpsRamp-Agent.sh
+   register: result
+   args:
+     warn: no
+         
+ - name: Updates packages
+   debug: msg="{{ result.stdout_lines }}"
