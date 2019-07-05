@@ -45,4 +45,4 @@
        debug: var=hello
        
      - name: Debug hello.stdout as part of a string
-       debug: "msg=The script's stdout was `{{ hello.stdout }}`."
+       debug: "msg=The script's stdout was `{{ hello.stdout }}`"
