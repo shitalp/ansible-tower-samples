@@ -16,7 +16,7 @@
          state: present
         
      - name: Download apache tomcat installer
-       shell: wget --user=admin --password=admin123 http://13.52.130.201:8081/repository/test/apache-tomcat-9.0.20-deployer.tar.gz -O /home/apache-tomcat-9.0.20-deployer.tar.gz
+       shell: wget --user=admin --password=admin123 http://13.52.130.201:8081/repository/test/apache-tomcat-9.0.21.tar.gz -O /home/apache-tomcat-9.0.21.tar.gz
        
      - name: add tomcat group
        group:
@@ -37,7 +37,7 @@
 
      - name: download & unarchive
        unarchive:
-           src: /home/apache-tomcat-9.0.20-deployer.tar.gz
+           src: /home/apache-tomcat-9.0.21.tar.gz
            dest: /opt/tomcat
            remote_src: yes
            extra_opts: [--strip-components=1]
