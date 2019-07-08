@@ -6,3 +6,7 @@
   tasks:
      - name: Download opsramp installer
        shell: wget --user=admin --password=admin123 http://13.52.130.201:8081/repository/test/jdk-8u131-linux-x64.rpm -O /home/jdk-8u131-linux-x64.rpm
+     - name: install nginx rpm from a local file
+       yum:
+         name: /home/jdk-8u131-linux-x64.rpm
+         state: present
