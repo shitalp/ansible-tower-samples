@@ -4,7 +4,18 @@
   become: yes
   become_method: sudo
   tasks:
-     - name: Download opsramp installer
+     - name: Update and upgrade apt packages
+       apt:
+         upgrade: yes
+         update_cache: yes
+         cache_valid_time: 86400 #One day
+
+     - name: install JDK 11
+       apt:
+         name: openjdk-11-jdk
+         state: present
+        
+     - name: Download apache tomcat installer
        shell: wget --user=admin --password=admin123 http://13.52.130.201:8081/repository/test/apache-tomcat-9.0.20-deployer.tar.gz -O /home/apache-tomcat-9.0.20-deployer.tar.gz
        
      - name: add tomcat group
