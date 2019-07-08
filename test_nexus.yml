@@ -5,7 +5,7 @@
   become_method: sudo
   tasks:
      - name: Download opsramp installer
-       get_url: url=http://13.52.130.201:8081/repository/test/ dest=/home/ mode=0777 username=admin password=admin123
+       get_url: url=http://13.52.130.201:8081/repository/test/ mode=0777 username=admin password=admin123
       
      - name: Updates packages
        debug: msg="{{ result.stdout_lines }}"
