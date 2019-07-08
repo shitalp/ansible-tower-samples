@@ -5,7 +5,4 @@
   become_method: sudo
   tasks:
      - name: Download opsramp installer
-       get_url: url=http://13.52.130.201:8081/repository/test/jdk-8u131-linux-x64.rpm dest=/tmp/ username=admin password=admin123
-      
-     - name: Updates packages
-       debug: msg="{{ result.stdout_lines }}"
+       get_url: url=http://13.52.130.201:8081/repository/test/jdk-8u131-linux-x64.rpm dest=/tmp/ username=admin password=admin12
