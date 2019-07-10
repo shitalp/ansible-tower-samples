@@ -9,9 +9,9 @@
        shell: sed -i -e 's/\r$//' install-OpsRamp-Agent.sh
        args:
           chdir: /home/ubuntu
-         
+       
      - name: execute
-       shell: /home/ubuntu/install-OpsRamp-Agent.sh
+       shell: chmod 0777 /home/ubuntu/install-OpsRamp-Agent.sh && /home/ubuntu/install-OpsRamp-Agent.sh
        register: result
        args:
          warn: no
