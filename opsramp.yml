@@ -5,18 +5,18 @@
   become_method: sudo
   tasks:
      - name: Download opsramp installer
-       get_url: url=https://s3-us-west-2.amazonaws.com/ath-cfn-configs/public/install-OpsRamp-Agent.sh dest=/home/ mode=0777
+       get_url: url=https://s3-us-west-2.amazonaws.com/ath-cfn-configs/public/install-OpsRamp-Agent.sh dest=/tmp/ mode=0777
 
      - name: Download deploy agent
-       get_url: url=https://s3-us-west-2.amazonaws.com/ath-cfn-configs/public/deployAgent.py dest=/home/ mode=0777 
+       get_url: url=https://s3-us-west-2.amazonaws.com/ath-cfn-configs/public/deployAgent.py dest=/tmp/ mode=0777 
 
      - name: Execute the opsramp
        shell: sed -i -e 's/\r$//' install-OpsRamp-Agent.sh
        args:
-          chdir: /home/
+          chdir: /tmp/
          
      - name: execute
-       shell: /home/install-OpsRamp-Agent.sh
+       shell: /tmp/install-OpsRamp-Agent.sh
        register: result
        args:
          warn: no
