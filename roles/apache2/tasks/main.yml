@@ -1,9 +1,4 @@
 ---
-- name: Install nginx
-  hosts: all
-  become: yes
-  become_method: sudo
-  tasks:
      - name: Update and upgrade apt packages
        apt:
          upgrade: yes
