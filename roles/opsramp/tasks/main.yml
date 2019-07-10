@@ -16,5 +16,5 @@
        args:
          warn: no
          
-     - name: Updates packages
+     - name: Debug
        debug: msg="{{ result.stdout_lines }}"
