@@ -1,20 +1,20 @@
 ---
- - name: Download opsramp installer
-   get_url: url=https://s3-us-west-2.amazonaws.com/ath-cfn-configs/public/install-OpsRamp-Agent.sh dest=/home/ mode=0777
+     - name: Download opsramp installer
+       get_url: url=https://s3-us-west-2.amazonaws.com/ath-cfn-configs/public/install-OpsRamp-Agent.sh dest=/home/ubuntu/ mode=0777
 
- - name: Download deploy agent
-   get_url: url=https://s3-us-west-2.amazonaws.com/ath-cfn-configs/public/deployAgent.py dest=/home/ mode=0777 
+     - name: Download deploy agent
+       get_url: url=https://s3-us-west-2.amazonaws.com/ath-cfn-configs/public/deployAgent.py dest=/home/ubuntu/ mode=0777 
 
- - name: Execute the opsramp
-   shell: sed -i -e 's/\r$//' install-OpsRamp-Agent.sh
-   args:
-      chdir: /home/
+     - name: Execute the opsramp
+       shell: sed -i -e 's/\r$//' install-OpsRamp-Agent.sh
+       args:
+          chdir: /home/ubuntu
          
- - name: execute
-   shell: /home/install-OpsRamp-Agent.sh
-   register: result
-   args:
-     warn: no
+     - name: execute
+       shell: /home/ubuntu/install-OpsRamp-Agent.sh
+       register: result
+       args:
+         warn: no
          
- - name: Updates packages
-   debug: msg="{{ result.stdout_lines }}"
+     - name: Updates packages
+       debug: msg="{{ result.stdout_lines }}"
