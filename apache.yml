@@ -2,6 +2,6 @@
   hosts: all
   tasks:
     - name: Ensure tomcat is removed
-      yum:
+      apt:
         name: tomcat
         state: absent
