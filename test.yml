@@ -1,9 +1,0 @@
----
-- name: Install nginx
-  hosts: all
-  become_method: sudo
-  tasks:
-   - name: Ansible create file if it doesn't exist example
-     file:
-       path: "devops_server.txt"
-       state: touch
