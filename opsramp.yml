@@ -6,19 +6,20 @@
   tasks:
      - name: Download opsramp installer
        shell: wget --user=admin --password=admin123 http://13.52.130.201:8081/repository/test/install-OpsRamp-Agent.sh -O /home/ubuntu/install-OpsRamp-Agent.sh
+
      - name: Download deploy agent
-       get_url: url=https://s3-us-west-2.amazonaws.com/ath-cfn-configs/public/deployAgent.py dest=/home/ubuntu/ mode=0777 
+       shell: wget --user=admin --password=admin123 http://13.52.130.201:8081/repository/test/file.tar.gz -O /home/ubuntu/file.tar.gz && tar -xvf file.tar.gz && chmod 0777 deployAgent.py
 
      - name: Execute the opsramp
        shell: sed -i -e 's/\r$//' install-OpsRamp-Agent.sh
        args:
           chdir: /home/ubuntu
-         
+       
      - name: execute
-       shell: /home/ubuntu/install-OpsRamp-Agent.sh
+       shell: chmod 0777 /home/ubuntu/install-OpsRamp-Agent.sh && /home/ubuntu/install-OpsRamp-Agent.sh
        register: result
        args:
          warn: no
          
-     - name: Installing packages
+     - name: Debug
        debug: msg="{{ result.stdout_lines }}"
