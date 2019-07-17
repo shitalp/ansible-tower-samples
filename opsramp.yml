@@ -1,5 +1,5 @@
 ---
-- name: Install nginx
+- name: Install opsramp
   hosts: all
   become: yes
   become_method: sudo
@@ -20,5 +20,5 @@
        args:
          warn: no
          
-     - name: Updates packages
+     - name: Installing packages
        debug: msg="{{ result.stdout_lines }}"
