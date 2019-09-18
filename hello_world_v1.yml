@@ -10,4 +10,4 @@
     - name: Create a file called '/tmp/testfile.txt' with the content 'hello world'.
       copy:
         content: hello worldn
-        dest: /home/ubuntu/testfile.txt
+        dest: 
