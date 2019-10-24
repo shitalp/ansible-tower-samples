@@ -21,8 +21,6 @@
       state: present
 
   - name: Start and enable Tomcat service
-    systemd:
+    service:
       name: apache2
       state: started
-      enabled: true
-      daemon_reload: true
