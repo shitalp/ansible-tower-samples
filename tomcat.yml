@@ -2,43 +2,27 @@
 ---
 
 - hosts: all
-
   become: yes
-
   become_method: sudo
 
-  
-
   tasks:
-
   - name: Update and upgrade apt packages
-
     apt:
-
       update_cache: yes
 
-
-
   - name: install JDK 11
-
     apt:
-
       name:  openjdk-7-jre-headless
-
+      state: present
+     
+  - name: install JDK 11
+    apt:
+      name: apache2
       state: present
 
-
-
-  
-
   - name: Start and enable Tomcat service
-
     systemd:
-
-      name: tomcat
-
+      name: apache2
       state: started
-
       enabled: true
-
       daemon_reload: true
