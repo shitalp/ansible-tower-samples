@@ -10,7 +10,7 @@
 
   - name: install JDK 11
     apt:
-      name: openjdk-7-jre-headless
+      name: openjdk-11-jdk
       state: present
 
   - name: add tomcat group
