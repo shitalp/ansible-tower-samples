@@ -10,12 +10,12 @@
     apt:
       update_cache: yes
 
-  - name: install JDK 11
+  - name: install JDK 
     apt:
       name:  openjdk-7-jre-headless
       state: present
      
-  - name: install JDK 11
+  - name: install apache tomcat 
     apt:
       name: apache2
       state: present
