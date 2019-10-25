@@ -1,24 +1,23 @@
-
----
-
-- hosts: all
-  become: yes
+--- 
+- 
+  become: true
   become_method: sudo
-
-  tasks:
-   - name: install apache2
-     apt: 
-        name: apache2 
-        update_cache: yes 
-        state: latest
-        
-    - name: enabled mod_rewrite
-      apache2_module: name=rewrite state=present
-      notify:
-        - restart apache2
-
-  handlers:
-    - name: restart apache2
+  handlers: 
+    - 
+      name: "restart apache2"
       service: 
-        name: apache2 
+        name: apache2
         state: restarted
+  hosts: all
+  tasks: 
+    - 
+      apt: 
+        name: apache2
+        state: latest
+        update_cache: true
+      name: "install apache2"
+    - 
+      apache2_module: "name=rewrite state=present"
+      name: "enabled mod_rewrite"
+      notify: 
+        - "restart apache2"
