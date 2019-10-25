@@ -2,9 +2,9 @@
 - hosts: all
   tasks:
   
-  - name: Update apt packages
-    apt:
-      update_cache: yes
+    - name: Update apt packages
+      apt:
+        update_cache: yes
       
     - name: Installs nginx web server
       apt: 
