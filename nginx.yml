@@ -7,7 +7,7 @@
     - name: Installs nginx web server
       apt: 
         name: nginx 
-        state: installed 
+        state: absent 
         
       notify:
         - start nginx
