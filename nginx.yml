@@ -1,5 +1,6 @@
 ---
 - hosts: all
+  become: sudo
   tasks:
   
     - name: Installs nginx web server
