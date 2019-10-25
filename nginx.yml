@@ -1,11 +1,15 @@
 ---
 - hosts: all
   tasks:
+  
+  - name: Update apt packages
+    apt:
+      update_cache: yes
+      
     - name: Installs nginx web server
       apt: 
         name: nginx 
         state: installed 
-        update_cache: true
         
       notify:
         - start nginx
