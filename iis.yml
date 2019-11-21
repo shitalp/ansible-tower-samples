@@ -1,5 +1,5 @@
 - name: test chocolatey with ansible
-  hosts: win7
+  hosts: all
   tasks:
       - name: Install IIS Web-Server with sub features and management tools
         win_feature:
