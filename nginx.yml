@@ -1,19 +1,12 @@
 ---
 - hosts: all
-  become: true
-  become_method: sudo
+  sudo: true
   tasks:
-  
     - name: Installs nginx web server
-      apt: 
-        name: nginx 
-        state: installed 
-        
+      apt: pkg=nginx state=present update_cache=true
       notify:
-        - start nginx
+         - start nginx
 
   handlers:
     - name: start nginx
-      service: 
-        name: nginx 
-        state: started
+      service: name=nginx state=started
