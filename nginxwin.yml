@@ -1,0 +1,13 @@
+---
+- hosts: all
+  tasks:
+        - name: install nginx
+          win_chocolatey:
+                name: nginx
+                state: present
+
+        - name: start nginx
+          win_service:
+                name: nginx
+                start_mode: auto
+                state: started
