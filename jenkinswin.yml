@@ -1,0 +1,16 @@
+---
+ - hosts: all
+   tasks:
+        - name: Ensure Java is installed
+          win_chocolatey:
+                name: jre8
+                state: present
+
+        - name: Ensure Jenkins is installed.
+          win_chocolatey:
+                name: jenkins
+                state: present
+          register: jenkins_install_package_win
+
+        - name: Ensure Jenkins is started and runs on startup
+          win_service: name=jenkins state=started enabled=yes
