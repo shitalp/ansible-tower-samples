@@ -1,0 +1,6 @@
+---
+- hosts: localhost
+  sudo: true
+  tasks:
+    - name: Installs nginx web server
+      apt: pkg=nginx state=absent update_cache=true
