@@ -5,7 +5,7 @@
     - name: Installs nginx web server
       apt: pkg=nginx state=present update_cache=true
       notify:
-         - start nginx
+         - start test
 
   handlers:
     - name: start nginx
